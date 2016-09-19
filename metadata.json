@@ -1,5 +1,5 @@
 {
-	"name": "logstash",
+	"name": "aboehm-logstash",
 	"version": "0.1.0",
 	"author": "Alexander Böhm",
 	"summary": "Install and configure logstash",
