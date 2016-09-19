@@ -92,4 +92,3 @@ Include logstash module and configure with hiera.
 
 Only Debian/Ubuntu are supported.
 
-
