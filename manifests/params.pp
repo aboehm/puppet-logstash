@@ -23,8 +23,8 @@ class logstash::params {
 
   $purge_undef = true
   $config_dir = '/etc/logstash/conf.d'
-  $config_dir_mode = '0750'
-  $config_file_mode = '0640'
+  $config_dir_mode = '0755'
+  $config_file_mode = '0644'
 
   $user = 'logstash'
   $group = 'logstash'

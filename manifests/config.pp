@@ -58,7 +58,7 @@ class logstash::config (
       $fn = regsubst($f, '/', '_')
       $cfgname = "500_${fn}"
 
-      file { "${config_dir}/${cfgname}.conf":
+      file { "${config_dir}/${cfgname}":
         ensure  => $ef,
         mode    => $config_file_mode,
         owner   => $user,
@@ -72,7 +72,7 @@ class logstash::config (
       $fn = regsubst($f, '/', '_')
       $cfgname = "900_${fn}"
 
-      file { "${config_dir}/${cfgname}.conf":
+      file { "${config_dir}/${cfgname}":
         ensure  => $ef,
         mode    => $config_file_mode,
         owner   => $user,
