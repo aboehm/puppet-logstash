@@ -87,6 +87,7 @@ Include logstash module and configure with hiera.
 * `logstash::install`: Install/remove package
 * `logstash::params`: Basic parameters of module
 * `logstash::repo`: Manage logstash repository
+* `logstash::service`: Service management
 
 ## Limitations
 

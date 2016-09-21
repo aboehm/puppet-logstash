@@ -1,6 +1,14 @@
-# Class: logstash
+# == Class: logstash
 #
-# logstash puppet module 
+# Logstash puppet module.
+#
+# === Authors
+#
+# Alexander Böhm <alxndr.boehm@gmail.com>
+#
+# === Copyright
+#
+# Copyright 2016 Alexander Böhm
 #
 
 class logstash (
