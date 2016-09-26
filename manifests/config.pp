@@ -15,7 +15,6 @@ class logstash::config (
   $user             = $logstash::params::user,
   $group            = $logstash::params::group,
 ) {
-  include logstash::params
 
   validate_re($ensure, 'installed|present|absent|held|purged|latest')
   validate_bool($purge_undef, true, false)
@@ -32,7 +31,7 @@ class logstash::config (
     $ed = false
   }
 
-  if ($ef != false) and ($ef =~ /file|absent/) {
+  if $ef != false {
     file { $config_dir:
       ensure  => $ed,
       mode    => $config_dir_mode,

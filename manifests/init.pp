@@ -21,14 +21,12 @@ class logstash (
   $outputs = $logstash::params::outputs,
 ) inherits logstash::params {
 
-  include logstash::params
-  include stdlib
-  include elastic
-  include java
-
   validate_re($ensure, 'present|installed|absent|purged|held|latest')
   validate_re($running, 'running|stopped')
   validate_bool($enable, true, false)
+
+  include elastic
+  include java
 
   anchor { 'logstash::begin': } ->
   Class['elastic::key'] ->
@@ -38,10 +36,6 @@ class logstash (
   Class['logstash::config'] ->
   Class['logstash::service'] ->
   anchor { 'logstash::end': }
-
-  ensure_resource('class', 'elastic::key', {
-    ensure  => $ensure,
-  })
 
   ensure_resource('class', 'logstash::repo', {
     ensure  => $ensure,
