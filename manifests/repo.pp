@@ -20,7 +20,7 @@ class logstash::repo (
   if $ea != false {
     apt::source { 'logstash':
       ensure   => $ea,
-      location => "http://packages.elasticsearch.org/logstash/${release}/debian",
+      location => "http://packages.elastic.co/logstash/${release}/debian",
       release  => 'stable',
       repos    => 'main',
       include  => {

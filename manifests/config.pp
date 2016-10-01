@@ -39,9 +39,10 @@ class logstash::config (
       purge   => $purge_undef,
     }
 
-    each($inputs) |$f| {
+    each($inputs) |$idx, $f| {
       $fn = regsubst($f, '/', '_')
-      $cfgname = "100_${fn}"
+      $prio = 100 + $idx
+      $cfgname = "${prio}_${fn}"
 
       file { "${config_dir}/${cfgname}":
         ensure  => $ef,
@@ -53,9 +54,10 @@ class logstash::config (
       }
     }
 
-    each($filters) |$f| {
+    each($filters) |$idx, $f| {
       $fn = regsubst($f, '/', '_')
-      $cfgname = "500_${fn}"
+      $prio = 500 + $idx
+      $cfgname = "${prio}_${fn}"
 
       file { "${config_dir}/${cfgname}":
         ensure  => $ef,
@@ -67,9 +69,10 @@ class logstash::config (
       }
     }
 
-    each($outputs) |$f| {
+    each($outputs) |$idx, $f| {
       $fn = regsubst($f, '/', '_')
-      $cfgname = "900_${fn}"
+      $prio = 900 + $idx
+      $cfgname = "${prio}_${fn}"
 
       file { "${config_dir}/${cfgname}":
         ensure  => $ef,
