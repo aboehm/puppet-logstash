@@ -5,10 +5,14 @@
 
 class logstash::params {
   $release = '2.4'
+
   $ensure = 'present'
-  $enable  = false
-  $running = running
+  $package_name = 'logstash'
   $include_src = false
+
+  $service_name = 'logstash'
+  $enable  = true
+  $running = running
 
   $inputs = [
     'logstash/input_syslog.conf'

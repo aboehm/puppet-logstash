@@ -4,12 +4,13 @@
 #
 
 class logstash::install (
-  $ensure  = $logstash::params::ensure,
+  $ensure       = $logstash::params::ensure,
+  $package_name = $logstash::params::package_name,
 ) {
 
   validate_re($ensure, 'present|installed|absent|purged|held|latest')
 
-  package { 'logstash':
+  package { $package_name:
     ensure          => $ensure,
     install_options => ['--no-install-recommends'],
   }

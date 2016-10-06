@@ -4,10 +4,11 @@
 #
 
 class logstash::service (
-  $enable  = $logstash::params::enable,
-  $running = $logstash::params::running,
+  $enable       = $logstash::params::enable,
+  $running      = $logstash::params::running,
+  $service_name = $logstash::params::service_name,
 ) {
-  service { 'logstash':
+  service { $service_name:
     ensure => $running,
     enable => $enable,
   }
