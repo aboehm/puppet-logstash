@@ -31,6 +31,7 @@ class logstash (
   anchor { 'logstash::begin': } ->
   Class['elastic::key'] ->
   Class['logstash::repo'] ->
+  Class['apt::update'] ->
   Class['java'] ->
   Class['logstash::install'] ->
   Class['logstash::config'] ->
@@ -47,7 +48,7 @@ class logstash (
   })
 
   ensure_resource('class', 'logstash::install', {
-    ensure => $ensure,
+    ensure  => $ensure,
   })
 
   ensure_resource('class', 'logstash::config', {
