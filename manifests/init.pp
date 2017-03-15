@@ -29,19 +29,13 @@ class logstash (
   include java
 
   anchor { 'logstash::begin': } ->
-  Class['elastic::key'] ->
-  Class['logstash::repo'] ->
+  Class['elastic::repo'] ->
   Class['apt::update'] ->
   Class['java'] ->
   Class['logstash::install'] ->
   Class['logstash::config'] ->
   Class['logstash::service'] ->
   anchor { 'logstash::end': }
-
-  ensure_resource('class', 'logstash::repo', {
-    ensure  => $ensure,
-    release => $release,
-  })
 
   ensure_resource('class', 'java', {
     distribution => 'jdk',

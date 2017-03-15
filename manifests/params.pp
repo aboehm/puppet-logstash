@@ -4,7 +4,6 @@
 #
 
 class logstash::params {
-  $release = '2.4'
 
   $ensure = 'present'
   $package_name = 'logstash'
